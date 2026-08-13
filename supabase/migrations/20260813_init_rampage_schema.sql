@@ -30,6 +30,9 @@ create table if not exists public.profiles (
   created_at timestamptz not null default now()
 );
 
+drop trigger if exists on_auth_user_created on auth.users;
+drop function if exists public.handle_new_user();
+
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -69,6 +72,18 @@ execute function public.handle_new_user();
 alter table public.products enable row level security;
 alter table public.product_variants enable row level security;
 alter table public.profiles enable row level security;
+
+drop policy if exists "Products are publicly readable when active" on public.products;
+drop policy if exists "Admins can manage products" on public.products;
+drop policy if exists "Admins can update products" on public.products;
+drop policy if exists "Admins can delete products" on public.products;
+drop policy if exists "Variants are publicly readable when parent product is active" on public.product_variants;
+drop policy if exists "Admins can manage variants" on public.product_variants;
+drop policy if exists "Admins can update variants" on public.product_variants;
+drop policy if exists "Admins can delete variants" on public.product_variants;
+drop policy if exists "Users can view own profile" on public.profiles;
+drop policy if exists "Admins can view all profiles" on public.profiles;
+drop policy if exists "Users can update own profile" on public.profiles;
 
 create policy "Products are publicly readable when active"
 on public.products
