@@ -1,16 +1,73 @@
-# React + Vite
+# Rampage Collective
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Rampage Collective is the global streetwear brand front end for the sibling label to Dynasty100. This repo currently contains the initial frontend shell and the database schema foundation for a separate Supabase project.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Vite
+- React
+- Tailwind CSS
+- Supabase SQL schema
 
-## React Compiler
+## Current status
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is intentionally in placeholder/no-real-data state for visual review and database foundation work.
 
-## Expanding the ESLint configuration
+### Frontend includes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- monochrome brand palette
+- gothic display typography for the wordmark and hero moments
+- sans-serif UI for functional elements
+- hero section with brand nav and CTA
+- collection strip
+- footer with Dynasty100 legal attribution note
+
+### Database includes
+
+- `products`
+- `product_variants`
+- `profiles`
+- auth trigger to auto-create a profile row on new account signup
+- row-level security policies for active public catalog access and admin-managed writes
+
+## Project structure
+
+```text
+.
+├── src/
+│   ├── components/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── supabase/
+│   ├── migrations/
+│   └── schema.sql
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+├── index.html
+└── README.md
+```
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the local Vite URL in the browser.
+
+## Build verification
+
+```bash
+npm run build
+npm run lint
+```
+
+## Notes
+
+- This repo does not include Supabase connection credentials or environment variables yet.
+- The schema is intentionally fulfillment-agnostic and does not include POD or supplier-specific fields.
+- The app does not hardcode any `dynasty100.online` root-domain assumptions.
