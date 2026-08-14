@@ -1,6 +1,18 @@
+import { NavLink, Route, Routes } from 'react-router-dom'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
+import HomePage from './pages/Home'
+import ShopPage from './pages/Shop'
+import DropsPage from './pages/Drops'
+import AboutPage from './pages/About'
 import { supabase } from './lib/supabase'
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Drops', href: '/drops' },
+  { label: 'About', href: '/about' },
+]
 
 function App() {
   const envStatus = {
@@ -9,6 +21,11 @@ function App() {
   }
 
   const checkConnection = async () => {
+    if (!supabase) {
+      console.error('Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Netlify.')
+      return
+    }
+
     const { data, error } = await supabase.from('products').select('id').limit(1)
 
     if (error) {
@@ -21,10 +38,37 @@ function App() {
 
   return (
     <div className="min-h-screen bg-bone text-charcoal antialiased">
-      <div className="mx-auto max-w-[1600px]">
-        <Hero />
-        <Footer />
-      </div>
+      <header className="mx-auto max-w-[1600px] px-6 pt-8 md:px-10">
+        <nav className="flex items-center justify-between gap-6 border-b border-charcoal/15 pb-5">
+          <NavLink to="/" className="font-gothic text-3xl leading-none tracking-[0.04em] text-charcoal md:text-4xl">
+            Rampage Collective
+          </NavLink>
+
+          <div className="flex items-center gap-7 text-[10px] font-medium uppercase tracking-[0.32em] text-charcoal">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.label}
+                to={item.href}
+                className={({ isActive }) =>
+                  `transition-colors duration-200 ${isActive ? 'text-muted' : 'hover:text-muted'}`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        </nav>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/drops" element={<DropsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+
+      <Footer />
 
       <div className="mx-auto max-w-7xl px-6 pb-8 text-[10px] uppercase tracking-[0.2em] text-muted md:px-10">
         <p className="mb-2">Env status</p>
