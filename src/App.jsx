@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
 import HomePage from './pages/Home'
 import ShopPage from './pages/Shop'
 import DropsPage from './pages/Drops'
@@ -180,6 +181,8 @@ function App() {
           Check Supabase
         </button>
       </div>
+
+      <CookieConsent />
     </div>
   )
 }

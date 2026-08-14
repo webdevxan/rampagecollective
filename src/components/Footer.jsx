@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import EmailModal from './EmailModal'
 
 function Footer() {
+  const [modalOpen, setModalOpen] = useState(false)
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
@@ -34,7 +37,10 @@ function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#1a1a18] px-12 pt-14 pb-6 text-bone">
+    <>
+      <EmailModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      
+      <footer className="w-full bg-[#1a1a18] px-12 pt-14 pb-6 text-bone">
       <div className="mx-auto max-w-[1600px]">
         <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
           <div className="flex items-start">
@@ -80,6 +86,7 @@ function Footer() {
           <div className="flex items-center gap-4">
             <button
               type="button"
+              onClick={() => setModalOpen(true)}
               className="rounded-full border border-[#5f5e5a] bg-transparent px-6 py-3 font-sans text-[12px] font-medium uppercase tracking-[0.28em] text-[#e9e7e0] transition-colors duration-200 hover:border-[#e9e7e0] hover:text-[#e9e7e0]"
             >
               JOIN THE LIST
@@ -113,7 +120,8 @@ function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   )
 }
 
