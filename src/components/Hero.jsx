@@ -1,28 +1,34 @@
-const navItems = ['Shop', 'Drops', 'About']
+import { Link } from 'react-router-dom'
+
+const navItems = [
+  { label: 'Shop', href: '/shop' },
+  { label: 'Drops', href: '/drops' },
+  { label: 'About', href: '/about' },
+]
 
 const collections = [
-  'Core Essentials',
-  'Vandal Series',
-  'Global Capsule',
+  { label: 'Core Essentials', href: '/shop' },
+  { label: 'Vandal Series', href: '/shop' },
+  { label: 'Global Capsule', href: '/shop' },
 ]
 
 function Hero() {
   return (
     <header className="mx-auto max-w-7xl px-6 pb-10 pt-8 md:px-10">
       <nav className="flex items-center justify-between gap-6 border-b border-charcoal/15 pb-5">
-        <div className="font-gothic text-3xl leading-none tracking-[0.04em] text-charcoal md:text-4xl">
+        <Link to="/" className="font-gothic text-3xl leading-none tracking-[0.04em] text-charcoal md:text-4xl">
           Rampage Collective
-        </div>
+        </Link>
 
         <div className="flex items-center gap-7 text-[10px] font-medium uppercase tracking-[0.32em] text-charcoal">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href="#"
+            <Link
+              key={item.label}
+              to={item.href}
               className="transition-colors duration-200 hover:text-muted"
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </div>
       </nav>
@@ -46,13 +52,13 @@ function Hero() {
 
       <div className="grid gap-4 border-t border-charcoal/15 pt-5 md:grid-cols-3">
         {collections.map((item) => (
-          <a
-            key={item}
-            href="#"
+          <Link
+            key={item.label}
+            to={item.href}
             className="flex min-h-[108px] items-center justify-center border border-charcoal/20 bg-transparent px-6 py-6 text-center text-[10px] font-medium uppercase tracking-[0.26em] text-muted transition-colors duration-200 hover:border-charcoal hover:text-charcoal"
           >
-            {item}
-          </a>
+            {item.label}
+          </Link>
         ))}
       </div>
     </header>
