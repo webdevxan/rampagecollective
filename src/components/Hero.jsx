@@ -1,11 +1,5 @@
 import { Link } from 'react-router-dom'
 
-const navItems = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'Drops', href: '/drops' },
-  { label: 'About', href: '/about' },
-]
-
 const collections = [
   { label: 'Core Essentials', href: '/shop' },
   { label: 'Vandal Series', href: '/shop' },
@@ -14,25 +8,7 @@ const collections = [
 
 function Hero() {
   return (
-    <header className="mx-auto max-w-7xl px-6 pb-10 pt-8 md:px-10">
-      <nav className="flex items-center justify-between gap-6 border-b border-charcoal/15 pb-5">
-        <Link to="/" className="font-gothic text-3xl leading-none tracking-[0.04em] text-charcoal md:text-4xl">
-          Rampage Collective
-        </Link>
-
-        <div className="flex items-center gap-7 text-[10px] font-medium uppercase tracking-[0.32em] text-charcoal">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className="transition-colors duration-200 hover:text-muted"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </nav>
-
+    <section className="mx-auto max-w-7xl px-6 pb-10 pt-8 md:px-10">
       <div className="flex flex-col items-center pt-16 pb-10 text-center md:pt-20">
         <h1 className="font-gothic text-[4.5rem] leading-none tracking-[-0.04em] text-charcoal sm:text-[6rem] md:text-[8rem]">
           Rampage
@@ -61,7 +37,7 @@ function Hero() {
           </Link>
         ))}
       </div>
-    </header>
+    </section>
   )
 }
 

@@ -8,8 +8,8 @@ function Footer() {
       { label: 'About Rampage', href: '/about' },
       { label: 'Collections', href: '/collections' },
       { label: 'Drops', href: '/drops' },
-      { label: 'Careers', href: '#' },
-      { label: 'Press', href: '#' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Press', href: '/press' },
     ],
     shop: [
       { label: 'New Arrivals', href: '/shop' },
@@ -19,17 +19,17 @@ function Footer() {
       { label: 'Sale', href: '/shop' },
     ],
     community: [
-      { label: "What's New", href: '#' },
-      { label: 'Lookbook', href: '#' },
-      { label: 'Guidelines', href: '#' },
-      { label: 'Support', href: '#' },
+      { label: "What's New", href: '/whats-new' },
+      { label: 'Lookbook', href: '/lookbook' },
+      { label: 'Guidelines', href: '/guidelines' },
+      { label: 'Support', href: '/support' },
     ],
     help: [
-      { label: 'Shipping', href: '#' },
-      { label: 'Returns & Exchanges', href: '#' },
-      { label: 'Track Order', href: '#' },
-      { label: 'Size Guide', href: '#' },
-      { label: 'Contact', href: '#' },
+      { label: 'Shipping', href: '/shipping' },
+      { label: 'Returns & Exchanges', href: '/returns' },
+      { label: 'Track Order', href: '/track-order' },
+      { label: 'Size Guide', href: '/size-guide' },
+      { label: 'Contact', href: '/contact' },
     ],
   }
 
@@ -60,6 +60,7 @@ function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       className="font-sans text-[13px] text-[#cfcdc6] transition-colors duration-200 hover:text-[#e9e7e0]"
                     >
                       {link.label}
