@@ -19,7 +19,14 @@ function DropsPage() {
       <div className="space-y-6">
         {drops.map((drop) => (
           <article key={drop.name} className="grid gap-6 border border-charcoal/20 bg-white p-6 md:grid-cols-[1.2fr_0.8fr_0.5fr] md:items-center">
-            <div className="h-48 bg-charcoal/10 md:h-40" />
+            <div className="relative h-48 overflow-hidden bg-[#e8e4df] md:h-40">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04),transparent_65%)]" />
+              <div className="absolute inset-0 flex items-center justify-center px-3 text-center">
+                <span className="font-gothic text-[clamp(2rem,3.8vw,3.2rem)] leading-[0.8] tracking-[0.08em] text-charcoal/80 drop-shadow-[0_1px_0_rgba(255,255,255,0.3)]">
+                  COMING<br />SOON
+                </span>
+              </div>
+            </div>
             <div>
               <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.28em] text-muted">{drop.date}</p>
               <h2 className="font-sans text-2xl font-semibold text-charcoal">{drop.name}</h2>

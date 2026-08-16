@@ -44,6 +44,12 @@ function CollectionsPage() {
                   key={item}
                   className="flex min-h-[240px] flex-col justify-end border border-charcoal/20 bg-white p-6"
                 >
+                  <div className="relative mb-4 h-32 overflow-hidden bg-[#e8e4df]">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04),transparent_65%)]" />
+                    <span className="absolute inset-0 flex items-center justify-center px-2 text-center font-gothic text-[clamp(1.5rem,2.2vw,2.5rem)] leading-[0.8] tracking-[0.08em] text-charcoal/80 drop-shadow-[0_1px_0_rgba(255,255,255,0.3)]">
+                      COMING<br />SOON
+                    </span>
+                  </div>
                   <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.3em] text-muted">
                     {collection.name}
                   </p>
