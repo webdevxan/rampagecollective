@@ -36,32 +36,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-bone text-charcoal antialiased">
-      <div className="h-12 border-b border-[#d5d0c5] bg-[#1c1b1a] px-3 text-[#f0efe9] md:h-14">
-        <div className="mx-auto flex h-full max-w-[1600px] items-center justify-between">
-          <div className="flex items-center gap-3 text-[#f0efe9]/80">
-            <span className="text-xl leading-none">‹</span>
-            <span className="text-xl leading-none">›</span>
-            <span className="text-lg leading-none">◌</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 rounded-sm border border-[#5a5651] bg-[#262423] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.22em] text-[#f4f1ea]">
-              <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-sm bg-[#b3532d] text-[8px] font-bold text-[#f8efe7]">
-                R
-              </span>
-              projectrampage.netlify.app
-            </div>
-            <div className="flex items-center gap-2 text-[#f0efe9]/80">
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-sm border border-[#6f6963] bg-[#2d2a27] text-[10px]">◍</span>
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-sm border border-[#6f6963] bg-[#2d2a27] text-[10px]">▣</span>
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-sm border border-[#6f6963] bg-[#2d2a27] text-[10px]">⚙</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <header className="mx-auto max-w-[1600px] px-6 md:px-10">
-        <div className="flex items-center justify-between gap-6 border-b border-charcoal/20 py-8 md:py-10">
+        <nav className="flex items-center justify-between gap-6 border-b border-charcoal/15 py-8 md:py-10">
           <NavLink
             to="/"
             onClick={() => {
@@ -69,7 +45,7 @@ function App() {
                 scrollToTop()
               }
             }}
-            className="font-gothic text-[clamp(2.7rem,4vw,5rem)] leading-[0.8] tracking-[0.04em] text-charcoal transition-colors hover:text-muted"
+            className="font-gothic text-[clamp(2.8rem,4vw,5rem)] leading-[0.8] tracking-[0.04em] text-charcoal transition-colors hover:text-muted"
           >
             Rampage Collective
           </NavLink>
@@ -119,35 +95,7 @@ function App() {
               />
             </span>
           </button>
-        </div>
-
-        <div className="flex items-center justify-between gap-6 border-b border-charcoal/20 py-8 md:py-10">
-          <NavLink
-            to="/"
-            onClick={() => {
-              if (window.location.pathname === '/') {
-                scrollToTop()
-              }
-            }}
-            className="font-gothic text-[clamp(2.2rem,3.4vw,4.7rem)] leading-[0.82] tracking-[0.04em] text-charcoal transition-colors hover:text-muted"
-          >
-            Rampage Collective
-          </NavLink>
-
-          <div className="hidden items-center gap-7 text-[10px] font-medium uppercase tracking-[0.32em] text-charcoal md:flex">
-            {['Shop', 'Drops', 'About'].map((label) => (
-              <NavLink
-                key={label}
-                to={label === 'Shop' ? '/shop' : label === 'Drops' ? '/drops' : '/about'}
-                className={({ isActive }) =>
-                  `transition-colors duration-200 ${isActive ? 'text-muted' : 'hover:text-muted'}`
-                }
-              >
-                {label}
-              </NavLink>
-            ))}
-          </div>
-        </div>
+        </nav>
 
         {menuOpen && (
           <div id="mobile-menu" className="border-b border-charcoal/15 pb-4 pt-3 md:hidden">
