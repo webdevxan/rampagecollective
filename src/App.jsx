@@ -6,7 +6,7 @@ import HomePage from './pages/Home'
 import ShopPage from './pages/Shop'
 import DropsPage from './pages/Drops'
 import AboutPage from './pages/About'
-import CollectionsPage from './pages/Collections'
+import CollectionsPage, { CollectionDetailPage } from './pages/Collections'
 import CareersPage from './pages/Careers'
 import PressPage from './pages/Press'
 import WhatsNewPage from './pages/WhatsNew'
@@ -20,6 +20,7 @@ import SizeGuidePage from './pages/SizeGuide'
 import ContactPage from './pages/Contact'
 import LegalPage from './pages/LegalPage'
 import { supabase } from './lib/supabase'
+import { getPageTitle } from './seo'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -33,6 +34,7 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
+    document.title = getPageTitle(location.pathname)
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [location.pathname])
 

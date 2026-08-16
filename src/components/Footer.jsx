@@ -16,9 +16,9 @@ function Footer() {
     ],
     shop: [
       { label: 'New Arrivals', href: '/shop' },
-      { label: 'Core Essentials', href: '/shop' },
-      { label: 'Vandal Series', href: '/shop' },
-      { label: 'Global Capsule', href: '/shop' },
+      { label: 'Core Essentials', href: '/collections/core-essentials' },
+      { label: 'Vandal Series', href: '/collections/vandal-series' },
+      { label: 'Global Capsule', href: '/collections/global-capsule' },
       { label: 'Sale', href: '/shop' },
     ],
     community: [

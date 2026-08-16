@@ -45,3 +45,78 @@ button {
   box-sizing: border-box;
 }
 
+@media (max-width: 767px) {
+  .mobile-snap-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .mobile-snap-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-snap-card {
+    scroll-snap-align: start;
+    flex: 0 0 68vw;
+    width: 68vw;
+    min-width: 68vw;
+    max-width: 68vw;
+  }
+
+  .featured-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .featured-product-card {
+    min-height: 0;
+    padding: 12px;
+  }
+
+  .featured-product-visual {
+    height: 9.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .featured-product-copy {
+    min-width: 0;
+  }
+
+  .featured-product-label {
+    letter-spacing: 0.22em;
+    font-size: 9px;
+  }
+
+  .featured-product-name {
+    font-size: 1rem;
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .featured-product-price {
+    font-size: 0.875rem;
+  }
+
+  .collection-card-visual {
+    height: 8.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .collection-card-meta {
+    letter-spacing: 0.22em;
+    font-size: 8px;
+  }
+
+  .coming-soon-placeholder {
+    font-size: clamp(1.5rem, 7vw, 2.4rem);
+    line-height: 0.82;
+    letter-spacing: 0.08em;
+  }
+}
+

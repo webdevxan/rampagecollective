@@ -21,24 +21,24 @@ function HomePage() {
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="featured-products-grid grid md:grid-cols-3 md:gap-6">
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="flex min-h-[330px] flex-col justify-between border border-charcoal/20 bg-white p-6"
+              className="featured-product-card flex min-h-[220px] flex-col justify-between border border-charcoal/20 bg-white md:min-h-[330px] md:p-6"
             >
-              <div className="relative mb-5 h-52 w-full overflow-hidden bg-[#e8e4df]">
+              <div className="featured-product-visual relative w-full overflow-hidden bg-[#e8e4df] md:mb-5 md:h-52">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04),transparent_65%)]" />
-                <span className="absolute inset-0 flex items-center justify-center px-3 text-center font-gothic text-[clamp(2.2rem,3.7vw,3.4rem)] leading-[0.8] tracking-[0.08em] text-charcoal/80 drop-shadow-[0_1px_0_rgba(255,255,255,0.3)]">
+                <span className="coming-soon-placeholder absolute inset-0 flex items-center justify-center px-3 text-center font-gothic text-charcoal/80 drop-shadow-[0_1px_0_rgba(255,255,255,0.3)]">
                   COMING<br />SOON
                 </span>
               </div>
-              <div>
-                <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.3em] text-muted">
+              <div className="featured-product-copy">
+                <p className="featured-product-label mb-2 font-medium uppercase tracking-[0.3em] text-muted">
                   Drop 01 / {i}
                 </p>
-                <h3 className="mb-2 font-sans text-lg font-semibold text-charcoal">Product {i}</h3>
-                <p className="text-sm text-muted">From $120</p>
+                <h3 className="featured-product-name mb-2 font-sans font-semibold text-charcoal">Product {i}</h3>
+                <p className="featured-product-price text-muted">From $120</p>
               </div>
             </div>
           ))}
