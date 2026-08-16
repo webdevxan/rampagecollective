@@ -101,18 +101,25 @@ function Footer() {
         </div>
 
         <div className="mt-6 flex flex-col items-center justify-between gap-6 border-t border-white/15 pt-[18px] md:flex-row">
-          <div className="flex flex-wrap items-center gap-4 font-sans text-[11px] text-[#75746e]">
-            <Link to="#" className="transition-colors duration-200 hover:text-[#e9e7e0]">
+          <div className="flex flex-wrap items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em] text-[#75746e]">
+            <Link to="/terms" className="transition-colors duration-200 hover:text-[#e9e7e0]">
               Terms of Use
             </Link>
             <span>•</span>
-            <Link to="#" className="transition-colors duration-200 hover:text-[#e9e7e0]">
+            <Link to="/privacy" className="transition-colors duration-200 hover:text-[#e9e7e0]">
               Privacy Policy
             </Link>
             <span>•</span>
-            <Link to="#" className="transition-colors duration-200 hover:text-[#e9e7e0]">
+            <button
+              type="button"
+              onClick={() => {
+                localStorage.removeItem('rampage-cookie-consent')
+                window.location.reload()
+              }}
+              className="transition-colors duration-200 hover:text-[#e9e7e0]"
+            >
               Cookie Settings
-            </Link>
+            </button>
           </div>
 
           <p className="font-sans text-[11px] text-[#75746e]">

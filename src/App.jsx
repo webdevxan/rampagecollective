@@ -18,6 +18,7 @@ import ReturnsPage from './pages/Returns'
 import TrackOrderPage from './pages/TrackOrder'
 import SizeGuidePage from './pages/SizeGuide'
 import ContactPage from './pages/Contact'
+import LegalPage from './pages/LegalPage'
 import { supabase } from './lib/supabase'
 
 const navItems = [
@@ -141,6 +142,9 @@ function App() {
         <Route path="/track-order" element={<TrackOrderPage />} />
         <Route path="/size-guide" element={<SizeGuidePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/terms" element={<LegalPage title="Terms of Use" intro="These terms govern how the Rampage Collective experience is used, accessed, and engaged with across our digital space." sections={[{ heading: 'Use of the site', body: ['This site is for lawful, personal, and non-commercial use. You agree not to disrupt, interfere with, or attempt to access restricted areas of the platform or its systems.'] }, { heading: 'Brand and content', body: ['All visuals, copy, layouts, product imagery, and brand assets remain the property of Rampage Collective. They may not be copied, redistributed, or repurposed without permission.'] }, { heading: 'Updates and continuity', body: ['We may revise these terms as the brand evolves. Continued use of the site after updates indicates acceptance of those changes.'] }]} />} />
+        <Route path="/privacy" element={<LegalPage title="Privacy Policy" intro="We keep the experience clean, intentional, and useful — collecting only the information needed to run the shop, support customers, and refine what matters." sections={[{ heading: 'What we collect', body: ['We may collect your contact information, order details, support communication, and browsing data required to operate the website and deliver relevant service.'] }, { heading: 'How it is used', body: ['This information is used to fulfill orders, maintain account access, improve the experience, and communicate updates tied to your purchase or interest in the brand.'] }, { heading: 'Cookies and preferences', body: ['We use cookies to support core functionality, understand site performance, and remember the choices you make while browsing. You can manage those preferences at any time.'] }]} />} />
+        <Route path="/cookies" element={<LegalPage title="Cookie Settings" intro="Consent is simple: choose the level of personalization and analytics you want while keeping the experience stable and secure." sections={[{ heading: 'Essential cookies', body: ['These keep the site functioning as intended — security, session continuity, and preference handling all rely on them.'] }, { heading: 'Analytics cookies', body: ['These help us understand how visitors move through the platform so we can improve performance, clarity, and product discovery.'] }, { heading: 'Marketing cookies', body: ['These support relevant campaign measurement and may help personalize future offers and brand communications.'] }]} />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
 
