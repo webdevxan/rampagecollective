@@ -1,26 +1,26 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
-import HomePage from './pages/Home'
-import ShopPage from './pages/Shop'
-import DropsPage from './pages/Drops'
-import AboutPage from './pages/About'
-import CollectionsPage, { CollectionDetailPage } from './pages/Collections'
-import CareersPage from './pages/Careers'
-import PressPage from './pages/Press'
-import WhatsNewPage from './pages/WhatsNew'
-import LookbookPage from './pages/Lookbook'
-import GuidelinesPage from './pages/Guidelines'
-import SupportPage from './pages/Support'
-import ShippingPage from './pages/Shipping'
-import ReturnsPage from './pages/Returns'
-import TrackOrderPage from './pages/TrackOrder'
-import SizeGuidePage from './pages/SizeGuide'
-import ContactPage from './pages/Contact'
-import LegalPage from './pages/LegalPage'
-import { supabase } from './lib/supabase'
 import { getPageTitle } from './seo'
+
+const HomePage = lazy(() => import('./pages/Home'))
+const ShopPage = lazy(() => import('./pages/Shop'))
+const DropsPage = lazy(() => import('./pages/Drops'))
+const AboutPage = lazy(() => import('./pages/About'))
+const CollectionsPage = lazy(() => import('./pages/Collections'))
+const CareersPage = lazy(() => import('./pages/Careers'))
+const PressPage = lazy(() => import('./pages/Press'))
+const WhatsNewPage = lazy(() => import('./pages/WhatsNew'))
+const LookbookPage = lazy(() => import('./pages/Lookbook'))
+const GuidelinesPage = lazy(() => import('./pages/Guidelines'))
+const SupportPage = lazy(() => import('./pages/Support'))
+const ShippingPage = lazy(() => import('./pages/Shipping'))
+const ReturnsPage = lazy(() => import('./pages/Returns'))
+const TrackOrderPage = lazy(() => import('./pages/TrackOrder'))
+const SizeGuidePage = lazy(() => import('./pages/SizeGuide'))
+const ContactPage = lazy(() => import('./pages/Contact'))
+const LegalPage = lazy(() => import('./pages/LegalPage'))
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -132,7 +132,14 @@ function App() {
         )}
       </header>
 
-      <Routes>
+      <Suspense
+        fallback={
+          <div className="flex min-h-[40vh] items-center justify-center px-6 text-[10px] font-medium uppercase tracking-[0.28em] text-charcoal">
+            Loading…
+          </div>
+        }
+      >
+        <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/drops" element={<DropsPage />} />
@@ -154,6 +161,7 @@ function App() {
         <Route path="/cookies" element={<LegalPage title="Cookie Settings" intro="Cookie preferences are managed in a straightforward way so visitors can choose what information they are comfortable sharing while maintaining a secure, functional experience. Our aim is to balance personalization with transparency and user control." sections={[{ heading: 'Essential cookies', body: ['Essential cookies are required for core site functions such as navigation, session continuity, consent handling, and security-related safeguards. These cookies support the basic operation of the storefront and keep the experience reliable.','Without these cookies, you may be unable to complete transactions, access account-related functions, or retain your settings across visits.'] }, { heading: 'Analytics cookies', body: ['Analytics cookies help us understand how visitors move through the website, which product and content experiences are most relevant, and where friction may exist. This information supports better decision-making around layout, merchandising, and user experience.','Data collected through analytics is typically aggregated and used to improve the performance and utility of the site over time. It is not used to create a personal profile for unrelated commercial purposes.'] }, { heading: 'Marketing cookies', body: ['Marketing cookies may be used to evaluate the performance of campaigns, understand how customers interact with promotional content, and personalize future communications more effectively. These tools allow us to refine outreach based on general engagement patterns.','You may choose to disable marketing cookies at any time. Doing so will not prevent you from accessing the site, but it may limit the personalization or relevance of future promotions and campaign messaging.'] }, { heading: 'Managing your preference', body: ['You can revisit this settings panel at any time to update your cookie preferences. We recommend reviewing these choices periodically if your browsing habits, device usage, or privacy expectations change.','Where legally required, we will treat your preferences as an expression of consent and will apply them consistently across the site experience.'] }]} />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
+      </Suspense>
 
       <Footer />
       <CookieConsent />

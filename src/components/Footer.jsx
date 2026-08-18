@@ -58,7 +58,7 @@ function Footer() {
             { title: 'Help', links: footerLinks.help },
           ].map((group) => (
             <div key={group.title}>
-              <h3 className="mb-6 font-sans text-[11px] font-semibold tracking-[1.5px] text-[#8a8880] uppercase">
+              <h3 className="mb-6 font-sans text-[11px] font-semibold tracking-[1.5px] text-[#a8a6a0] uppercase">
                 {group.title}
               </h3>
               <ul className="space-y-[11px]">
@@ -101,7 +101,7 @@ function Footer() {
         </div>
 
         <div className="mt-6 flex flex-col items-center justify-between gap-6 border-t border-white/15 pt-[18px] md:flex-row">
-          <div className="flex flex-wrap items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em] text-[#75746e]">
+          <div className="flex flex-wrap items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em] text-[#a8a6a0]">
             <Link to="/terms" className="transition-colors duration-200 hover:text-[#e9e7e0]">
               Terms of Use
             </Link>
@@ -122,7 +122,7 @@ function Footer() {
             </button>
           </div>
 
-          <p className="font-sans text-[11px] text-[#75746e]">
+          <p className="font-sans text-[11px] text-[#a8a6a0]">
             A company by Dynasty100™ · Copyright {currentYear} Rampage Collective. All rights reserved.
           </p>
         </div>

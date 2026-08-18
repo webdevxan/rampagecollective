@@ -58,7 +58,7 @@ function ShopPage() {
       <div className="mt-16 rounded-[2rem] bg-charcoal px-8 py-12 text-bone md:px-12">
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#8a8880]">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#a8a6a0]">
               Built for motion
             </p>
             <h2 className="font-sans text-3xl font-bold">Need a capsule edit?</h2>

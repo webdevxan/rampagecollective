@@ -49,7 +49,7 @@ function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#8a8880]">
+              <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#a8a6a0]">
                 Curated edits
               </p>
               <h2 className="font-sans text-3xl font-bold text-bone md:text-4xl">

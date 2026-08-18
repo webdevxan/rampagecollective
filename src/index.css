@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+@font-face {
+  font-family: 'UnifrakturMaguntia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/unifrakturmaguntia.woff2') format('woff2');
+}
 
 @tailwind base;
 @tailwind components;
